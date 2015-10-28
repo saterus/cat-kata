@@ -5,9 +5,10 @@ Today's Kata is to reimplement the classic Unix utility
 
 # Our favorite cat
 
-A brief history of the utility, which you can find on the [`cat` man page]():
+A brief history of the utility, which you can find on the [`cat` man page](https://www.freebsd.org/cgi/man.cgi?query=cat&manpath=FreeBSD+10.2-RELEASE):
 
 > HISTORY
+>
 >     A cat utility appeared in Version 1 AT&T UNIX.  Dennis Ritchie designed
 >     and wrote the first man page.  It appears to have been cat(1).
 
