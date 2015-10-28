@@ -5,13 +5,13 @@ Today's Kata is to reimplement the classic Unix utility
 
 # Our favorite cat
 
-The [`cat` man page]() has a history section:
+A brief history of the utility, which you can find on the [`cat` man page]():
 
 > HISTORY
 >     A cat utility appeared in Version 1 AT&T UNIX.  Dennis Ritchie designed
 >     and wrote the first man page.  It appears to have been cat(1).
 
-While this is one of the oldest Unix utilities, don't underestimate it, there is
+While this is one of the oldest Unix utilities, don't underestimate it. There is
 still plenty of work ahead of us.
 
 # Usage
@@ -114,7 +114,7 @@ afraid to spend a few minutes reading documentation.
 **Start small.** Work on the smallest piece of `cat`'s functionality you can
 think to break off. You don't need to fully generalize file handling with
 STDIN/STDOUT immediately. At what point in argument/option parsing do you reach
-for a third party library? Probably not for the most basic functionality.
+for a third party library? You probably don't for the most basic functionality.
 
 If you think this is simple or finish early, make sure your solution works with
 unix pipes. Can you make it operate in a small, constant memory footprint?
