@@ -1,3 +1,4 @@
+use std::io::stdin;
 use std::env::args;
 use std::fs::File;
 use std::io::Read;
@@ -6,11 +7,22 @@ use std::io::Read;
 static HELP_TEXT: &'static str = "usage: cat [-benstuv] [file ...]";
 
 fn main() {
-    let path = args().skip(1).take(1).last().expect("You must pass a path as the first argument.");
-    let mut file = File::open(path).unwrap();
-    let mut buffer = String::new();
-    file.read_to_string(&mut buffer).unwrap();
-    print!("{}", buffer);
+    let mut files: Vec<Box<Read>> = args().skip(1)
+                                          .map(|path| Box::new(File::open(path).unwrap()) as Box<Read>)
+                                          .collect();
+
+    if files.is_empty() {
+        files.push(Box::new(stdin()) as Box<Read>);
+    }
+
+    for mut file in files.into_iter() {
+        read_contents(&mut file);
+    }
 }
 
+fn read_contents<R: Read>(reader: &mut R) {
+    let mut buffer = String::new();
+    reader.read_to_string(&mut buffer).unwrap();
+    print!("{}", buffer);
+}
 
